@@ -36,54 +36,53 @@
         compatible = "zmk,physical-keys";
         #key-cells = <0>;
 
-        // --- 1번째 줄 (Top) ---
-        // [수정됨] 모든 키에 compatible = "zmk,physical-key"; 추가 완료
-        k0: k_0 { compatible = "zmk,physical-key"; #key-cells = <0>; y = <0>; x = <0>; width = <1800>; height = <1800>; };
-        k1: k_1 { compatible = "zmk,physical-key"; #key-cells = <0>; y = <0>; x = <1900>; width = <1800>; height = <1800>; };
-        k2: k_2 { compatible = "zmk,physical-key"; #key-cells = <0>; y = <0>; x = <3800>; width = <1800>; height = <1800>; };
-        k3: k_3 { compatible = "zmk,physical-key"; #key-cells = <0>; y = <0>; x = <5700>; width = <1800>; height = <1800>; };
-        k4: k_4 { compatible = "zmk,physical-key"; #key-cells = <0>; y = <0>; x = <7600>; width = <1800>; height = <1800>; };
+        // [수정됨] 모든 키의 compatible을 복수형("zmk,physical-keys")으로 변경하여 빌드 통과 유도
+        k0: k_0 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <0>; x = <0>; width = <1800>; height = <1800>; };
+        k1: k_1 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <0>; x = <1900>; width = <1800>; height = <1800>; };
+        k2: k_2 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <0>; x = <3800>; width = <1800>; height = <1800>; };
+        k3: k_3 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <0>; x = <5700>; width = <1800>; height = <1800>; };
+        k4: k_4 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <0>; x = <7600>; width = <1800>; height = <1800>; };
         
-        k5: k_5 { compatible = "zmk,physical-key"; #key-cells = <0>; y = <0>; x = <22800>; width = <1800>; height = <1800>; };
-        k6: k_6 { compatible = "zmk,physical-key"; #key-cells = <0>; y = <0>; x = <24700>; width = <1800>; height = <1800>; };
-        k7: k_7 { compatible = "zmk,physical-key"; #key-cells = <0>; y = <0>; x = <26600>; width = <1800>; height = <1800>; };
-        k8: k_8 { compatible = "zmk,physical-key"; #key-cells = <0>; y = <0>; x = <28500>; width = <1800>; height = <1800>; };
-        k9: k_9 { compatible = "zmk,physical-key"; #key-cells = <0>; y = <0>; x = <30400>; width = <1800>; height = <1800>; };
+        k5: k_5 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <0>; x = <22800>; width = <1800>; height = <1800>; };
+        k6: k_6 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <0>; x = <24700>; width = <1800>; height = <1800>; };
+        k7: k_7 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <0>; x = <26600>; width = <1800>; height = <1800>; };
+        k8: k_8 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <0>; x = <28500>; width = <1800>; height = <1800>; };
+        k9: k_9 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <0>; x = <30400>; width = <1800>; height = <1800>; };
 
         // --- 2번째 줄 (Middle) ---
-        k10: k_10 { compatible = "zmk,physical-key"; #key-cells = <0>; y = <1900>; x = <0>; width = <1800>; height = <1800>; };
-        k11: k_11 { compatible = "zmk,physical-key"; #key-cells = <0>; y = <1900>; x = <1900>; width = <1800>; height = <1800>; };
-        k12: k_12 { compatible = "zmk,physical-key"; #key-cells = <0>; y = <1900>; x = <3800>; width = <1800>; height = <1800>; };
-        k13: k_13 { compatible = "zmk,physical-key"; #key-cells = <0>; y = <1900>; x = <5700>; width = <1800>; height = <1800>; };
-        k14: k_14 { compatible = "zmk,physical-key"; #key-cells = <0>; y = <1900>; x = <7600>; width = <1800>; height = <1800>; };
+        k10: k_10 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <1900>; x = <0>; width = <1800>; height = <1800>; };
+        k11: k_11 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <1900>; x = <1900>; width = <1800>; height = <1800>; };
+        k12: k_12 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <1900>; x = <3800>; width = <1800>; height = <1800>; };
+        k13: k_13 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <1900>; x = <5700>; width = <1800>; height = <1800>; };
+        k14: k_14 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <1900>; x = <7600>; width = <1800>; height = <1800>; };
         
-        k15: k_15 { compatible = "zmk,physical-key"; #key-cells = <0>; y = <1900>; x = <22800>; width = <1800>; height = <1800>; };
-        k16: k_16 { compatible = "zmk,physical-key"; #key-cells = <0>; y = <1900>; x = <24700>; width = <1800>; height = <1800>; };
-        k17: k_17 { compatible = "zmk,physical-key"; #key-cells = <0>; y = <1900>; x = <26600>; width = <1800>; height = <1800>; };
-        k18: k_18 { compatible = "zmk,physical-key"; #key-cells = <0>; y = <1900>; x = <28500>; width = <1800>; height = <1800>; };
-        k19: k_19 { compatible = "zmk,physical-key"; #key-cells = <0>; y = <1900>; x = <30400>; width = <1800>; height = <1800>; };
+        k15: k_15 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <1900>; x = <22800>; width = <1800>; height = <1800>; };
+        k16: k_16 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <1900>; x = <24700>; width = <1800>; height = <1800>; };
+        k17: k_17 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <1900>; x = <26600>; width = <1800>; height = <1800>; };
+        k18: k_18 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <1900>; x = <28500>; width = <1800>; height = <1800>; };
+        k19: k_19 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <1900>; x = <30400>; width = <1800>; height = <1800>; };
 
         // --- 3번째 줄 (Bottom) ---
-        k20: k_20 { compatible = "zmk,physical-key"; #key-cells = <0>; y = <3800>; x = <0>; width = <1800>; height = <1800>; };
-        k21: k_21 { compatible = "zmk,physical-key"; #key-cells = <0>; y = <3800>; x = <1900>; width = <1800>; height = <1800>; };
-        k22: k_22 { compatible = "zmk,physical-key"; #key-cells = <0>; y = <3800>; x = <3800>; width = <1800>; height = <1800>; };
-        k23: k_23 { compatible = "zmk,physical-key"; #key-cells = <0>; y = <3800>; x = <5700>; width = <1800>; height = <1800>; };
-        k24: k_24 { compatible = "zmk,physical-key"; #key-cells = <0>; y = <3800>; x = <7600>; width = <1800>; height = <1800>; };
+        k20: k_20 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <3800>; x = <0>; width = <1800>; height = <1800>; };
+        k21: k_21 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <3800>; x = <1900>; width = <1800>; height = <1800>; };
+        k22: k_22 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <3800>; x = <3800>; width = <1800>; height = <1800>; };
+        k23: k_23 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <3800>; x = <5700>; width = <1800>; height = <1800>; };
+        k24: k_24 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <3800>; x = <7600>; width = <1800>; height = <1800>; };
         
-        k25: k_25 { compatible = "zmk,physical-key"; #key-cells = <0>; y = <3800>; x = <22800>; width = <1800>; height = <1800>; };
-        k26: k_26 { compatible = "zmk,physical-key"; #key-cells = <0>; y = <3800>; x = <24700>; width = <1800>; height = <1800>; };
-        k27: k_27 { compatible = "zmk,physical-key"; #key-cells = <0>; y = <3800>; x = <26600>; width = <1800>; height = <1800>; };
-        k28: k_28 { compatible = "zmk,physical-key"; #key-cells = <0>; y = <3800>; x = <28500>; width = <1800>; height = <1800>; };
-        k29: k_29 { compatible = "zmk,physical-key"; #key-cells = <0>; y = <3800>; x = <30400>; width = <1800>; height = <1800>; };
+        k25: k_25 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <3800>; x = <22800>; width = <1800>; height = <1800>; };
+        k26: k_26 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <3800>; x = <24700>; width = <1800>; height = <1800>; };
+        k27: k_27 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <3800>; x = <26600>; width = <1800>; height = <1800>; };
+        k28: k_28 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <3800>; x = <28500>; width = <1800>; height = <1800>; };
+        k29: k_29 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <3800>; x = <30400>; width = <1800>; height = <1800>; };
 
         // --- 엄지 (Thumb) ---
-        k30: k_30 { compatible = "zmk,physical-key"; #key-cells = <0>; y = <5700>; x = <5700>; width = <1800>; height = <1800>; };
-        k31: k_31 { compatible = "zmk,physical-key"; #key-cells = <0>; y = <5700>; x = <7600>; width = <1800>; height = <1800>; };
-        k32: k_32 { compatible = "zmk,physical-key"; #key-cells = <0>; y = <5700>; x = <9500>; width = <1800>; height = <1800>; };
+        k30: k_30 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <5700>; x = <5700>; width = <1800>; height = <1800>; };
+        k31: k_31 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <5700>; x = <7600>; width = <1800>; height = <1800>; };
+        k32: k_32 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <5700>; x = <9500>; width = <1800>; height = <1800>; };
         
-        k33: k_33 { compatible = "zmk,physical-key"; #key-cells = <0>; y = <5700>; x = <20900>; width = <1800>; height = <1800>; };
-        k34: k_34 { compatible = "zmk,physical-key"; #key-cells = <0>; y = <5700>; x = <22800>; width = <1800>; height = <1800>; };
-        k35: k_35 { compatible = "zmk,physical-key"; #key-cells = <0>; y = <5700>; x = <24700>; width = <1800>; height = <1800>; };
+        k33: k_33 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <5700>; x = <20900>; width = <1800>; height = <1800>; };
+        k34: k_34 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <5700>; x = <22800>; width = <1800>; height = <1800>; };
+        k35: k_35 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <5700>; x = <24700>; width = <1800>; height = <1800>; };
     };
 };
 
