@@ -34,6 +34,7 @@
 / {
     keys {
         compatible = "zmk,physical-keys";
+        #key-cells = <0>;
         
         k0: k_0 { y = <0>; x = <0>; width = <1800>; height = <1800>; };
         k1: k_1 { y = <0>; x = <1900>; width = <1800>; height = <1800>; };
