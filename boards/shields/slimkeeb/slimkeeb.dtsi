@@ -3,6 +3,7 @@
 / {
     chosen {
         zmk,matrix-transform = &default_transform;
+        zmk,physical-layout = &physical_layout0;
     };
 
     default_transform: keymap_transform_0 {
@@ -15,6 +16,68 @@
             RC(2,0) RC(1,1) RC(2,1) RC(2,2) RC(2,3)   RC(2,7) RC(2,6) RC(2,5) RC(1,5) RC(2,4)
                             RC(4,2) RC(4,1) RC(4,0)   RC(4,4) RC(4,5) RC(4,6)
         >;
+    };
+
+    physical_layout0: physical_layout_0 {
+        compatible = "zmk,physical-layout";
+        display-name = "Default Layout";
+        transform = <&default_transform>;
+        keys 
+            = <&k0  &k1  &k2  &k3  &k4    &k5  &k6  &k7  &k8  &k9>
+            , <&k10 &k11 &k12 &k13 &k14   &k15 &k16 &k17 &k18 &k19>
+            , <&k20 &k21 &k22 &k23 &k24   &k25 &k26 &k27 &k28 &k29>
+            ,           <&k30 &k31 &k32   &k33 &k34 &k35>
+            ;
+    };
+};
+
+/ {
+    keys {
+        compatible = "zmk,physical-keys";
+        
+        k0: k_0 { y = <0>; x = <0>; width = <1800>; height = <1800>; };
+        k1: k_1 { y = <0>; x = <1900>; width = <1800>; height = <1800>; };
+        k2: k_2 { y = <0>; x = <3800>; width = <1800>; height = <1800>; };
+        k3: k_3 { y = <0>; x = <5700>; width = <1800>; height = <1800>; };
+        k4: k_4 { y = <0>; x = <7600>; width = <1800>; height = <1800>; };
+        
+        k5: k_5 { y = <0>; x = <22800>; width = <1800>; height = <1800>; };
+        k6: k_6 { y = <0>; x = <24700>; width = <1800>; height = <1800>; };
+        k7: k_7 { y = <0>; x = <26600>; width = <1800>; height = <1800>; };
+        k8: k_8 { y = <0>; x = <28500>; width = <1800>; height = <1800>; };
+        k9: k_9 { y = <0>; x = <30400>; width = <1800>; height = <1800>; };
+
+        k10: k_10 { y = <1900>; x = <0>; width = <1800>; height = <1800>; };
+        k11: k_11 { y = <1900>; x = <1900>; width = <1800>; height = <1800>; };
+        k12: k_12 { y = <1900>; x = <3800>; width = <1800>; height = <1800>; };
+        k13: k_13 { y = <1900>; x = <5700>; width = <1800>; height = <1800>; };
+        k14: k_14 { y = <1900>; x = <7600>; width = <1800>; height = <1800>; };
+        
+        k15: k_15 { y = <1900>; x = <22800>; width = <1800>; height = <1800>; };
+        k16: k_16 { y = <1900>; x = <24700>; width = <1800>; height = <1800>; };
+        k17: k_17 { y = <1900>; x = <26600>; width = <1800>; height = <1800>; };
+        k18: k_18 { y = <1900>; x = <28500>; width = <1800>; height = <1800>; };
+        k19: k_19 { y = <1900>; x = <30400>; width = <1800>; height = <1800>; };
+
+        k20: k_20 { y = <3800>; x = <0>; width = <1800>; height = <1800>; };
+        k21: k_21 { y = <3800>; x = <1900>; width = <1800>; height = <1800>; };
+        k22: k_22 { y = <3800>; x = <3800>; width = <1800>; height = <1800>; };
+        k23: k_23 { y = <3800>; x = <5700>; width = <1800>; height = <1800>; };
+        k24: k_24 { y = <3800>; x = <7600>; width = <1800>; height = <1800>; };
+        
+        k25: k_25 { y = <3800>; x = <22800>; width = <1800>; height = <1800>; };
+        k26: k_26 { y = <3800>; x = <24700>; width = <1800>; height = <1800>; };
+        k27: k_27 { y = <3800>; x = <26600>; width = <1800>; height = <1800>; };
+        k28: k_28 { y = <3800>; x = <28500>; width = <1800>; height = <1800>; };
+        k29: k_29 { y = <3800>; x = <30400>; width = <1800>; height = <1800>; };
+
+        k30: k_30 { y = <5700>; x = <5700>; width = <1800>; height = <1800>; };
+        k31: k_31 { y = <5700>; x = <7600>; width = <1800>; height = <1800>; };
+        k32: k_32 { y = <5700>; x = <9500>; width = <1800>; height = <1800>; };
+        
+        k33: k_33 { y = <5700>; x = <20900>; width = <1800>; height = <1800>; };
+        k34: k_34 { y = <5700>; x = <22800>; width = <1800>; height = <1800>; };
+        k35: k_35 { y = <5700>; x = <24700>; width = <1800>; height = <1800>; };
     };
 };
 
