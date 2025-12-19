@@ -33,7 +33,7 @@
 
 / {
     keys {
-        compatible = "zmk,physical-keys";
+        compatible = "zmk,physical-key";
         #key-cells = <0>;
 
         // [수정됨] 아래 모든 키를 "zmk,physical-key" (단수형)로 통일했습니다.
