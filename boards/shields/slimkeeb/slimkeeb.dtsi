@@ -33,12 +33,6 @@
 
 / {
     keys {
-        compatible = "zmk,physical-key";
-        #key-cells = <0>;
-
-        // [수정됨] 아래 모든 키를 "zmk,physical-key" (단수형)로 통일했습니다.
-        
-        // --- 1번째 줄 (Top) ---
         k0: k_0 { compatible = "zmk,physical-key"; #key-cells = <0>; y = <0>; x = <0>; width = <1800>; height = <1800>; };
         k1: k_1 { compatible = "zmk,physical-key"; #key-cells = <0>; y = <0>; x = <1900>; width = <1800>; height = <1800>; };
         k2: k_2 { compatible = "zmk,physical-key"; #key-cells = <0>; y = <0>; x = <3800>; width = <1800>; height = <1800>; };
