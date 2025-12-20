@@ -9,14 +9,13 @@
 / {
     chosen {
         zmk,physical-layout = &physical_layout0;
+        // zmk,matrix-transform은 여기서 사용하지 않습니다 (physical-layout 안에 포함됨)
     };
 
-    /* * 수정됨: #key-cells = <7>
-     * ZMK 바인딩 규칙(x, y, w, h, rx, ry, rz)에 맞춰 7개로 설정했습니다.
-     */
+    /* ZMK Studio를 위한 물리적 속성 정의 (7개 인자) */
     key_physical_attrs: key_physical_attrs {
         compatible = "zmk,key-physical-attrs";
-        #key-cells = <7>;
+        #key-cells = <7>; /* x, y, w, h, rx, ry, rz */
     };
 
     default_transform: keymap_transform_0 {
@@ -35,7 +34,9 @@
         compatible = "zmk,physical-layout";
         display-name = "Default Layout";
         transform = <&default_transform>;
-        /* 모든 키에 0 0 0 (회전값)을 추가하여 총 7개 인자를 맞췄습니다 */
+        /* * 키 좌표 정의 (단위: 1900 = 19mm = 1u)
+         * 형식: <&key_physical_attrs  X  Y  W  H  0  0  0> 
+         */
         keys =  // --- Top Row ---
                 // Left Hand (0-4)
                 <&key_physical_attrs 0 0 1900 1900 0 0 0>,
