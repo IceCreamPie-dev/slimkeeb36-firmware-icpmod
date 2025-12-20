@@ -139,12 +139,17 @@
 
         GameMode {
             bindings = <&to 3>;
-            key-positions = <21 23>;
+            key-positions = <21 22>;
         };
 
         NormalMod {
             bindings = <&to 0>;
-            key-positions = <20 22>;
+            key-positions = <20 21>;
+        };
+
+        MouseLayer {
+            bindings = <&to 4>;
+            key-positions = <22 23>;
         };
     };
 };
