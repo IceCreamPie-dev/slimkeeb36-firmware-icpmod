@@ -1,8 +1,4 @@
-/*
- * Copyright (c) 2020 The ZMK Contributors
- *
- * SPDX-License-Identifier: MIT
- */
+
 
 #include <dt-bindings/zmk/matrix_transform.h>
 
@@ -11,12 +7,9 @@
         zmk,physical-layout = &physical_layout0;
     };
 
-    /* * layouts.dtsi 파일을 찾지 못하는 캐시 문제를 피하기 위해
-     * 여기에 직접 정의합니다.
-     */
     key_physical_attrs: key_physical_attrs {
         compatible = "zmk,key-physical-attrs";
-        #binding-cells = <4>; /* x, y, w, h (4개 인자) */
+        #key-cells = <4>; /* x, y, w, h */
     };
 
     default_transform: keymap_transform_0 {
