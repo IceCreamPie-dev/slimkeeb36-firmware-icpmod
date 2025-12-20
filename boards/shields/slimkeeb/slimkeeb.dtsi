@@ -1,6 +1,65 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 
 / {
+    keys {
+        compatible = "zmk,physical-keys";
+        #key-cells = <0>;
+
+        // --- Left Hand (Row 1) ---
+        k0: k_0 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <0>; x = <0>; width = <1800>; height = <1800>; };
+        k1: k_1 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <0>; x = <1900>; width = <1800>; height = <1800>; };
+        k2: k_2 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <0>; x = <3800>; width = <1800>; height = <1800>; };
+        k3: k_3 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <0>; x = <5700>; width = <1800>; height = <1800>; };
+        k4: k_4 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <0>; x = <7600>; width = <1800>; height = <1800>; };
+
+        // --- Right Hand (Row 1) ---
+        k5: k_5 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <0>; x = <22800>; width = <1800>; height = <1800>; };
+        k6: k_6 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <0>; x = <24700>; width = <1800>; height = <1800>; };
+        k7: k_7 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <0>; x = <26600>; width = <1800>; height = <1800>; };
+        k8: k_8 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <0>; x = <28500>; width = <1800>; height = <1800>; };
+        k9: k_9 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <0>; x = <30400>; width = <1800>; height = <1800>; };
+
+        // --- Left Hand (Row 2) ---
+        k10: k_10 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <1900>; x = <0>; width = <1800>; height = <1800>; };
+        k11: k_11 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <1900>; x = <1900>; width = <1800>; height = <1800>; };
+        k12: k_12 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <1900>; x = <3800>; width = <1800>; height = <1800>; };
+        k13: k_13 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <1900>; x = <5700>; width = <1800>; height = <1800>; };
+        k14: k_14 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <1900>; x = <7600>; width = <1800>; height = <1800>; };
+
+        // --- Right Hand (Row 2) ---
+        k15: k_15 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <1900>; x = <22800>; width = <1800>; height = <1800>; };
+        k16: k_16 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <1900>; x = <24700>; width = <1800>; height = <1800>; };
+        k17: k_17 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <1900>; x = <26600>; width = <1800>; height = <1800>; };
+        k18: k_18 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <1900>; x = <28500>; width = <1800>; height = <1800>; };
+        k19: k_19 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <1900>; x = <30400>; width = <1800>; height = <1800>; };
+
+        // --- Left Hand (Row 3) ---
+        k20: k_20 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <3800>; x = <0>; width = <1800>; height = <1800>; };
+        k21: k_21 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <3800>; x = <1900>; width = <1800>; height = <1800>; };
+        k22: k_22 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <3800>; x = <3800>; width = <1800>; height = <1800>; };
+        k23: k_23 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <3800>; x = <5700>; width = <1800>; height = <1800>; };
+        k24: k_24 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <3800>; x = <7600>; width = <1800>; height = <1800>; };
+
+        // --- Right Hand (Row 3) ---
+        k25: k_25 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <3800>; x = <22800>; width = <1800>; height = <1800>; };
+        k26: k_26 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <3800>; x = <24700>; width = <1800>; height = <1800>; };
+        k27: k_27 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <3800>; x = <26600>; width = <1800>; height = <1800>; };
+        k28: k_28 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <3800>; x = <28500>; width = <1800>; height = <1800>; };
+        k29: k_29 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <3800>; x = <30400>; width = <1800>; height = <1800>; };
+
+        // --- Thumbs (Left) ---
+        k30: k_30 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <5700>; x = <5700>; width = <1800>; height = <1800>; };
+        k31: k_31 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <5700>; x = <7600>; width = <1800>; height = <1800>; };
+        k32: k_32 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <5700>; x = <9500>; width = <1800>; height = <1800>; };
+        
+        // --- Thumbs (Right) ---
+        k33: k_33 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <5700>; x = <20900>; width = <1800>; height = <1800>; };
+        k34: k_34 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <5700>; x = <22800>; width = <1800>; height = <1800>; };
+        k35: k_35 { compatible = "zmk,physical-keys"; #key-cells = <0>; y = <5700>; x = <24700>; width = <1800>; height = <1800>; };
+    };
+};
+
+/ {
     chosen {
         zmk,matrix-transform = &default_transform;
         zmk,physical-layout = &physical_layout0;
@@ -14,7 +73,8 @@
             RC(0,0) RC(0,1) RC(0,2) RC(1,2) RC(0,3)   RC(0,7) RC(1,6) RC(0,6) RC(0,5) RC(0,4)
             RC(1,0) RC(3,0) RC(3,1) RC(3,2) RC(1,3)   RC(1,7) RC(3,6) RC(3,5) RC(3,4) RC(1,4)
             RC(2,0) RC(1,1) RC(2,1) RC(2,2) RC(2,3)   RC(2,7) RC(2,6) RC(2,5) RC(1,5) RC(2,4)
-                            RC(4,2) RC(4,1) RC(4,0)   RC(4,4) RC(4,5) RC(4,6)
+                          
+            RC(4,2) RC(4,1) RC(4,0)   RC(4,4) RC(4,5) RC(4,6)
         >;
     };
 
@@ -26,44 +86,9 @@
             = <&k0  &k1  &k2  &k3  &k4    &k5  &k6  &k7  &k8  &k9>
             , <&k10 &k11 &k12 &k13 &k14   &k15 &k16 &k17 &k18 &k19>
             , <&k20 &k21 &k22 &k23 &k24   &k25 &k26 &k27 &k28 &k29>
-            ,           <&k30 &k31 &k32   &k33 &k34 &k35>
+            ,       
+              <&k30 &k31 &k32   &k33 &k34 &k35>
             ;
-    };
-};
-
-/ {
-    keys {
-        compatible = "zmk,keys";
-        k_0: k_0 { compatible = "zmk,key";  label = "K00"; };
-        k_1: k_1 { compatible = "zmk,key";  label = "K01"; };
-        k_2: k_2 { compatible = "zmk,key";  label = "K02"; };
-        k_3: k_3 { compatible = "zmk,key";  label = "K03"; };
-    
-        k_4: k_4 { compatible = "zmk,key";  label = "K10"; };
-        k_5: k_5 { compatible = "zmk,key";  label = "K11"; };
-        k_6: k_6 { compatible = "zmk,key";  label = "K12"; };
-        k_7: k_7 { compatible = "zmk,key";  label = "K13"; };
-    
-        k_8: k_8 { compatible = "zmk,key";  label = "K20"; };
-        k_9: k_9 { compatible = "zmk,key";  label = "K21"; };
-        k_10: k_10 { compatible = "zmk,key"; label = "K22"; };
-        k_11: k_11 { compatible = "zmk,key"; label = "K23"; };
-    
-        k_12: k_12 { compatible = "zmk,key"; label = "K30"; };
-        k_13: k_13 { compatible = "zmk,key"; label = "K31"; };
-        k_14: k_14 { compatible = "zmk,key"; label = "K32"; };
-        k_15: k_15 { compatible = "zmk,key"; label = "K33"; };
-    
-        k_16: k_16 { compatible = "zmk,key"; label = "K40"; };
-        k_17: k_17 { compatible = "zmk,key"; label = "K41"; };
-        k_18: k_18 { compatible = "zmk,key"; label = "K42"; };
-        k_19: k_19 { compatible = "zmk,key"; label = "K43"; };
-    
-        /* If you have direct keys beyond the matrix, add them too: */
-        k_20: k_20 { compatible = "zmk,key"; label = "D0"; };
-        k_21: k_21 { compatible = "zmk,key"; label = "D1"; };
-        k_22: k_22 { compatible = "zmk,key"; label = "D2"; };
-        k_23: k_23 { compatible = "zmk,key"; label = "D3"; };
     };
 };
 
