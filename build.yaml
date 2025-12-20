@@ -18,13 +18,13 @@
 #
 ---
 include:
-  - board: seeeduino_xiao_ble
+  - board: xiao_ble
     shield: settings_reset
-  - board: seeeduino_xiao_ble
+  - board: xiao_ble
     shield: slimkeeb_left
     cmake-args: -DKEYMAP_FILE=../../config/gallium36.keymap
     artifact-name: slimkeeb_left_gallium
-  - board: seeeduino_xiao_ble
+  - board: xiao_ble
     shield: slimkeeb_right
     snippet: studio-rpc-usb-uart
     cmake-args: -DKEYMAP_FILE=../../config/gallium36.keymap -DCONFIG_ZMK_STUDIO=y
