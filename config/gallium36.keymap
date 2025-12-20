@@ -133,7 +133,7 @@
 
         combo_grave {
             timeout-ms = <40>;
-            key-positions = <15 16>;
+            key-positions = <29 28>;
             bindings = <&kp GRAVE>;
         };
 
