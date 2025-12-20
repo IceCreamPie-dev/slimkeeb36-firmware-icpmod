@@ -21,11 +21,11 @@ include:
   - board: xiao_ble  
     shield: settings_reset
   - board: xiao_ble  
-    shield: slimkeeb_left
+    shield: slimpie_left
     cmake-args: -DKEYMAP_FILE=../../config/gallium36.keymap
     artifact-name: slimkeeb_left_gallium
   - board: xiao_ble  
-    shield: slimkeeb_right
+    shield: slimpie_right
     snippet: studio-rpc-usb-uart
     cmake-args: -DKEYMAP_FILE=../../config/gallium36.keymap -DCONFIG_ZMK_STUDIO=y
-    artifact-name: slimkeeb_right_gallium
+    artifact-name: slimpie_right_gallium
