@@ -133,23 +133,23 @@
 
         combo_grave {
             timeout-ms = <40>;
-            key-positions = <14 24>;
+            key-positions = <15 16>;
             bindings = <&kp GRAVE>;
         };
 
         GameMode {
             bindings = <&to 3>;
-            key-positions = <21 22>;
+            key-positions = <24 14>;
         };
 
         NormalMod {
             bindings = <&to 0>;
-            key-positions = <20 21>;
+            key-positions = <15 25>;
         };
 
         MouseLayer {
             bindings = <&to 4>;
-            key-positions = <22 23>;
+            key-positions = <14 13>;
         };
     };
 };
