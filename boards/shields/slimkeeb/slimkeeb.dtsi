@@ -1,9 +1,6 @@
 /* slimkeeb.dtsi */
 #include <dt-bindings/zmk/matrix_transform.h>
 
-/* RC 매크로 정의 (매트릭스 변환용) */
-#define RC(row, col) ((row) * (col_multiplier) + (col))
-
 / {
     /* 1. 키 정의 (Keys) - 가장 먼저 정의해야 함 */
     keys {
