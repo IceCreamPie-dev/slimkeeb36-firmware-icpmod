@@ -11,6 +11,7 @@
         zmk,physical-layout = &physical_layout0;
     };
 
+    /* ZMK Studio 물리 속성 바인딩 (7개 인자) */
     key_physical_attrs: key_physical_attrs {
         compatible = "zmk,key-physical-attrs";
         #key-cells = <7>; /* x, y, w, h, rx, ry, rz */
@@ -33,67 +34,68 @@
 
         physical_layout0: physical_layout_0 {
             compatible = "zmk,physical-layout";
-            display-name = "Compact Layout";
+            display-name = "Corne 36 (Correct Scale)";
             transform = <&default_transform>;
             
-            /* * 수정 사항:
-             * 1. 키 크기(W, H)를 1900 -> 1800으로 변경 (시각적 여백 생성)
-             * 2. 오른쪽 유닛(Right Hand)의 X좌표를 -4000만큼 이동 (가운데로 모음)
+            /* * [수정됨] 단위: 100 = 1u (centi-keyunit)
+             * 이전 코드의 1/19 크기로 정상화했습니다.
+             * 키 크기: 100x100 (1u)
+             * 코르네 특유의 높낮이(Column Stagger) 적용
              */
             keys = 
                 /* --- Left Hand (Top Row) --- */
-                <&key_physical_attrs 0    950 1800 1800 0 0 0>,
-                <&key_physical_attrs 1900 250 1800 1800 0 0 0>,
-                <&key_physical_attrs 3800   0 1800 1800 0 0 0>,
-                <&key_physical_attrs 5700 250 1800 1800 0 0 0>,
-                <&key_physical_attrs 7600 250 1800 1800 0 0 0>,
+                /* X    Y   W   H   rot rx ry */
+                <&key_physical_attrs   0   50  100 100  0  0  0>, /* Pinky */
+                <&key_physical_attrs 100   12  100 100  0  0  0>, /* Ring */
+                <&key_physical_attrs 200    0  100 100  0  0  0>, /* Middle (Highest) */
+                <&key_physical_attrs 300   12  100 100  0  0  0>, /* Index */
+                <&key_physical_attrs 400   12  100 100  0  0  0>, /* Inner */
 
                 /* --- Right Hand (Top Row) --- */
-                /* 기존 15200 -> 11200 (4000만큼 당김) */
-                <&key_physical_attrs 11200 250 1800 1800 0 0 0>,
-                <&key_physical_attrs 13100 250 1800 1800 0 0 0>,
-                <&key_physical_attrs 15000   0 1800 1800 0 0 0>,
-                <&key_physical_attrs 16900 250 1800 1800 0 0 0>,
-                <&key_physical_attrs 18800 950 1800 1800 0 0 0>,
+                /* Gap: 2u (X좌표 600부터 시작) */
+                <&key_physical_attrs 600   12  100 100  0  0  0>,
+                <&key_physical_attrs 700   12  100 100  0  0  0>,
+                <&key_physical_attrs 800    0  100 100  0  0  0>,
+                <&key_physical_attrs 900   12  100 100  0  0  0>,
+                <&key_physical_attrs 1000  50  100 100  0  0  0>,
 
                 /* --- Left Hand (Middle Row) --- */
-                <&key_physical_attrs 0    2850 1800 1800 0 0 0>,
-                <&key_physical_attrs 1900 2150 1800 1800 0 0 0>,
-                <&key_physical_attrs 3800 1900 1800 1800 0 0 0>,
-                <&key_physical_attrs 5700 2150 1800 1800 0 0 0>,
-                <&key_physical_attrs 7600 2150 1800 1800 0 0 0>,
+                <&key_physical_attrs   0  150  100 100  0  0  0>,
+                <&key_physical_attrs 100  112  100 100  0  0  0>,
+                <&key_physical_attrs 200  100  100 100  0  0  0>,
+                <&key_physical_attrs 300  112  100 100  0  0  0>,
+                <&key_physical_attrs 400  112  100 100  0  0  0>,
 
                 /* --- Right Hand (Middle Row) --- */
-                <&key_physical_attrs 11200 2150 1800 1800 0 0 0>,
-                <&key_physical_attrs 13100 2150 1800 1800 0 0 0>,
-                <&key_physical_attrs 15000 1900 1800 1800 0 0 0>,
-                <&key_physical_attrs 16900 2150 1800 1800 0 0 0>,
-                <&key_physical_attrs 18800 2850 1800 1800 0 0 0>,
+                <&key_physical_attrs 600  112  100 100  0  0  0>,
+                <&key_physical_attrs 700  112  100 100  0  0  0>,
+                <&key_physical_attrs 800  100  100 100  0  0  0>,
+                <&key_physical_attrs 900  112  100 100  0  0  0>,
+                <&key_physical_attrs 1000 150  100 100  0  0  0>,
 
                 /* --- Left Hand (Bottom Row) --- */
-                <&key_physical_attrs 0    4750 1800 1800 0 0 0>,
-                <&key_physical_attrs 1900 4050 1800 1800 0 0 0>,
-                <&key_physical_attrs 3800 3800 1800 1800 0 0 0>,
-                <&key_physical_attrs 5700 4050 1800 1800 0 0 0>,
-                <&key_physical_attrs 7600 4050 1800 1800 0 0 0>,
+                <&key_physical_attrs   0  250  100 100  0  0  0>,
+                <&key_physical_attrs 100  212  100 100  0  0  0>,
+                <&key_physical_attrs 200  200  100 100  0  0  0>,
+                <&key_physical_attrs 300  212  100 100  0  0  0>,
+                <&key_physical_attrs 400  212  100 100  0  0  0>,
 
                 /* --- Right Hand (Bottom Row) --- */
-                <&key_physical_attrs 11200 4050 1800 1800 0 0 0>,
-                <&key_physical_attrs 13100 4050 1800 1800 0 0 0>,
-                <&key_physical_attrs 15000 3800 1800 1800 0 0 0>,
-                <&key_physical_attrs 16900 4050 1800 1800 0 0 0>,
-                <&key_physical_attrs 18800 4750 1800 1800 0 0 0>,
+                <&key_physical_attrs 600  212  100 100  0  0  0>,
+                <&key_physical_attrs 700  212  100 100  0  0  0>,
+                <&key_physical_attrs 800  200  100 100  0  0  0>,
+                <&key_physical_attrs 900  212  100 100  0  0  0>,
+                <&key_physical_attrs 1000 250  100 100  0  0  0>,
 
                 /* --- Left Thumb Cluster --- */
-                <&key_physical_attrs 4100 6000 1800 1800 0 0 0>,
-                <&key_physical_attrs 6000 6200 1800 1800 0 0 0>,
-                <&key_physical_attrs 7900 6200 1800 1800 0 0 0>,
+                <&key_physical_attrs 200  325  100 100  0  0  0>,
+                <&key_physical_attrs 300  335  100 100  0  0  0>,
+                <&key_physical_attrs 400  335  100 100  0  0  0>,
 
                 /* --- Right Thumb Cluster --- */
-                /* 엄지 위치도 -4000 이동 */
-                <&key_physical_attrs 10900 6200 1800 1800 0 0 0>,
-                <&key_physical_attrs 12800 6200 1800 1800 0 0 0>,
-                <&key_physical_attrs 14700 6000 1800 1800 0 0 0>;
+                <&key_physical_attrs 600  335  100 100  0  0  0>,
+                <&key_physical_attrs 700  335  100 100  0  0  0>,
+                <&key_physical_attrs 800  325  100 100  0  0  0>;
         };
     };
 };
