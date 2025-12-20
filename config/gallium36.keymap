@@ -1,4 +1,5 @@
 /* 1. 마우스 속도 설정 (헤더 파일보다 위에 있어야 함!) */
+
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 1500  /* 마우스 이동 속도 (기본 600 -> 1500) */
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 20    /* 스크롤 속도 (기본 10 -> 20) */
 
@@ -19,6 +20,7 @@
 / {
     behaviors {
         /* 2. 마우스 동작(Behavior) 정의 (이게 없으면 에러남!) */
+
         mmv: mouse_move {
             compatible = "zmk,behavior-input-two-axis";
             #binding-cells = <1>;
@@ -36,6 +38,7 @@
             time-to-max-speed-ms = <0>;
             acceleration-exponent = <0>;
         };
+
         /* ------------------------------------------------ */
 
         hm: homerow_mods {
@@ -45,6 +48,7 @@
             quick-tap-ms = <130>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
+
             label = "HOMEROW_MODS";
         };
 
@@ -55,6 +59,7 @@
             tapping-term-ms = <TAPPING_TERM>;
             quick-tap-ms = <QUICK_TAP_MS>;
             bindings = <&kp>, <&kp>;
+
             hold-trigger-key-positions = <KEYS_R KEYS_THUMB>;
         };
 
@@ -65,6 +70,7 @@
             tapping-term-ms = <TAPPING_TERM>;
             quick-tap-ms = <QUICK_TAP_MS>;
             bindings = <&kp>, <&kp>;
+
             hold-trigger-key-positions = <KEYS_L KEYS_THUMB>;
         };
 
@@ -82,20 +88,6 @@
             tapping-term-ms = <200>;
             bindings = <&none>, <&bt BT_SEL 0>, <&bt BT_SEL 1>;
         };
-
-        td1: tap_dance_1 {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp COMMA>, <&to 0>, <&to 1>;
-        };
-
-        td2: tap_dance_2 {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp F10>, <&to 0>, <&to 1>;
-        };
     };
 
     keymap {
@@ -103,9 +95,9 @@
 
         default_layer {
             bindings = <
-&kp Q           &kp W                 &kp E        &kp R        &kp T          &kp Y     &kp U         &kp I        &kp O       &kp P
-&kp A           &hm LALT S            &hm LCTRL D  &hm LSHFT F  &kp G          &kp H     &rhm RSHFT J  &hm LCTRL K  &hm LALT L  &kp SEMICOLON
-&kp Z           &kp X                 &kp C        &kp V        &kp B          &kp N     &kp M         &kp COMMA    &kp DOT     &kp SLASH
+&kp Q           &kp W                 &kp E        &kp R        &kp T          &kp Y     &kp U         &kp I        &kp O            &kp P
+&kp A           &hm LALT S            &hm LCTRL D  &hm LSHFT F  &kp G          &kp H     &rhm RSHFT J  &hm LCTRL K  &hm RIGHT_ALT L  &kp SEMICOLON
+&kp Z           &kp X                 &kp C        &kp V        &kp B          &kp N     &kp M         &kp COMMA    &kp DOT          &kp SLASH
 &mt ESC DELETE  &mt LEFT_SHIFT SPACE  &lt 1 TAB    &lt 2 ENTER  &kp RIGHT_ALT  &kp BSPC
             >;
         };
@@ -167,8 +159,8 @@
         };
 
         MouseLayer {
-            bindings = <&to 4>;
-            key-positions = <20 21>;
+            bindings = <&kp RIGHT_ALT>;
+            key-positions = <28 29>;
         };
     };
 };
