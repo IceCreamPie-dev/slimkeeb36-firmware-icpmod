@@ -1,10 +1,9 @@
+
 #include <dt-bindings/zmk/matrix_transform.h>
-#include <layouts.dtsi>
 
 / {
     chosen {
         zmk,physical-layout = &physical_layout0;
-        // zmk,matrix-transform은 physical-layout 내부에서 참조하므로 여기서는 제거합니다.
     };
 
     default_transform: keymap_transform_0 {
@@ -19,66 +18,71 @@
         >;
     };
 
-    layouts {
-        compatible = "zmk,physical-layout-list";
+    physical_layout0: physical_layout_0 {
+        compatible = "zmk,physical-layout";
+        display-name = "Default Layout";
+        transform = <&default_transform>;
+        // 1900 units = 19mm (표준 키캡 간격)
+        kscan = <&kscan0>; // kscan 참조가 필요할 수 있어 추가, 실제 kscan 라벨 확인 필요
+        keys =  // --- Top Row ---
+                // Left Hand (0-4)
+                <&key_physical_attrs 0 0 1900 1900 0 0 0>,
+                <&key_physical_attrs 1900 0 1900 1900 0 0 0>,
+                <&key_physical_attrs 3800 0 1900 1900 0 0 0>,
+                <&key_physical_attrs 5700 0 1900 1900 0 0 0>,
+                <&key_physical_attrs 7600 0 1900 1900 0 0 0>,
+                // Right Hand (5-9)
+                <&key_physical_attrs 12500 0 1900 1900 0 0 0>,
+                <&key_physical_attrs 14400 0 1900 1900 0 0 0>,
+                <&key_physical_attrs 16300 0 1900 1900 0 0 0>,
+                <&key_physical_attrs 18200 0 1900 1900 0 0 0>,
+                <&key_physical_attrs 20100 0 1900 1900 0 0 0>,
 
-        physical_layout0: physical_layout_0 {
-            display-name = "Default Layout";
-            transform = <&default_transform>;
-            // 1900 units = 19mm (표준 키캡 간격)
-            // 좌표 순서: Keymap 파일의 입력 순서와 일치해야 합니다 (0~35번 키)
-            keys =  // --- Top Row ---
-                    // Left Hand (0-4)
-                    <&key_physical_attrs 0 0 1900 1900>,
-                    <&key_physical_attrs 1900 0 1900 1900>,
-                    <&key_physical_attrs 3800 0 1900 1900>,
-                    <&key_physical_attrs 5700 0 1900 1900>,
-                    <&key_physical_attrs 7600 0 1900 1900>,
-                    // Right Hand (5-9) - X좌표에 갭(예: 3000)을 둠
-                    <&key_physical_attrs 12500 0 1900 1900>,
-                    <&key_physical_attrs 14400 0 1900 1900>,
-                    <&key_physical_attrs 16300 0 1900 1900>,
-                    <&key_physical_attrs 18200 0 1900 1900>,
-                    <&key_physical_attrs 20100 0 1900 1900>,
+                // --- Middle Row ---
+                // Left Hand (10-14)
+                <&key_physical_attrs 0 1900 1900 1900 0 0 0>,
+                <&key_physical_attrs 1900 1900 1900 1900 0 0 0>,
+                <&key_physical_attrs 3800 1900 1900 1900 0 0 0>,
+                <&key_physical_attrs 5700 1900 1900 1900 0 0 0>,
+                <&key_physical_attrs 7600 1900 1900 1900 0 0 0>,
+                // Right Hand (15-19)
+                <&key_physical_attrs 12500 1900 1900 1900 0 0 0>,
+                <&key_physical_attrs 14400 1900 1900 1900 0 0 0>,
+                <&key_physical_attrs 16300 1900 1900 1900 0 0 0>,
+                <&key_physical_attrs 18200 1900 1900 1900 0 0 0>,
+                <&key_physical_attrs 20100 1900 1900 1900 0 0 0>,
 
-                    // --- Middle Row ---
-                    // Left Hand (10-14)
-                    <&key_physical_attrs 0 1900 1900 1900>,
-                    <&key_physical_attrs 1900 1900 1900 1900>,
-                    <&key_physical_attrs 3800 1900 1900 1900>,
-                    <&key_physical_attrs 5700 1900 1900 1900>,
-                    <&key_physical_attrs 7600 1900 1900 1900>,
-                    // Right Hand (15-19)
-                    <&key_physical_attrs 12500 1900 1900 1900>,
-                    <&key_physical_attrs 14400 1900 1900 1900>,
-                    <&key_physical_attrs 16300 1900 1900 1900>,
-                    <&key_physical_attrs 18200 1900 1900 1900>,
-                    <&key_physical_attrs 20100 1900 1900 1900>,
+                // --- Bottom Row ---
+                // Left Hand (20-24)
+                <&key_physical_attrs 0 3800 1900 1900 0 0 0>,
+                <&key_physical_attrs 1900 3800 1900 1900 0 0 0>,
+                <&key_physical_attrs 3800 3800 1900 1900 0 0 0>,
+                <&key_physical_attrs 5700 3800 1900 1900 0 0 0>,
+                <&key_physical_attrs 7600 3800 1900 1900 0 0 0>,
+                // Right Hand (25-29)
+                <&key_physical_attrs 12500 3800 1900 1900 0 0 0>,
+                <&key_physical_attrs 14400 3800 1900 1900 0 0 0>,
+                <&key_physical_attrs 16300 3800 1900 1900 0 0 0>,
+                <&key_physical_attrs 18200 3800 1900 1900 0 0 0>,
+                <&key_physical_attrs 20100 3800 1900 1900 0 0 0>,
 
-                    // --- Bottom Row ---
-                    // Left Hand (20-24)
-                    <&key_physical_attrs 0 3800 1900 1900>,
-                    <&key_physical_attrs 1900 3800 1900 1900>,
-                    <&key_physical_attrs 3800 3800 1900 1900>,
-                    <&key_physical_attrs 5700 3800 1900 1900>,
-                    <&key_physical_attrs 7600 3800 1900 1900>,
-                    // Right Hand (25-29)
-                    <&key_physical_attrs 12500 3800 1900 1900>,
-                    <&key_physical_attrs 14400 3800 1900 1900>,
-                    <&key_physical_attrs 16300 3800 1900 1900>,
-                    <&key_physical_attrs 18200 3800 1900 1900>,
-                    <&key_physical_attrs 20100 3800 1900 1900>,
+                // --- Thumb Cluster ---
+                // Left Thumbs (30-32)
+                <&key_physical_attrs 3800 5700 1900 1900 0 0 0>,
+                <&key_physical_attrs 5700 5700 1900 1900 0 0 0>,
+                <&key_physical_attrs 7600 5700 1900 1900 0 0 0>,
+                // Right Thumbs (33-35)
+                <&key_physical_attrs 12500 5700 1900 1900 0 0 0>,
+                <&key_physical_attrs 14400 5700 1900 1900 0 0 0>,
+                <&key_physical_attrs 16300 5700 1900 1900 0 0 0>;
+    };
+};
 
-                    // --- Thumb Cluster ---
-                    // Left Thumbs (30-32) - 약간 안쪽으로 배치
-                    <&key_physical_attrs 3800 5700 1900 1900>,
-                    <&key_physical_attrs 5700 5700 1900 1900>,
-                    <&key_physical_attrs 7600 5700 1900 1900>,
-                    // Right Thumbs (33-35)
-                    <&key_physical_attrs 12500 5700 1900 1900>,
-                    <&key_physical_attrs 14400 5700 1900 1900>,
-                    <&key_physical_attrs 16300 5700 1900 1900>;
-        };
+// ZMK Studio를 위해 key_physical_attrs 노드를 수동 정의
+/ {
+    key_physical_attrs: key_physical_attrs {
+        compatible = "zmk,key-physical-attrs";
+        #binding-cells = <7>; // x, y, w, h, rx, ry, rz (회전 포함 7개 인자)
     };
 };
 
