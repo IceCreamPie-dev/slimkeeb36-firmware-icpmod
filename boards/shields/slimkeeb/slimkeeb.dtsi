@@ -5,11 +5,18 @@
  */
 
 #include <dt-bindings/zmk/matrix_transform.h>
-#include <layouts.dtsi>
 
 / {
     chosen {
         zmk,physical-layout = &physical_layout0;
+    };
+
+    /* * layouts.dtsi 파일을 찾지 못하는 캐시 문제를 피하기 위해
+     * 여기에 직접 정의합니다.
+     */
+    key_physical_attrs: key_physical_attrs {
+        compatible = "zmk,key-physical-attrs";
+        #binding-cells = <4>; /* x, y, w, h (4개 인자) */
     };
 
     default_transform: keymap_transform_0 {
@@ -25,6 +32,7 @@
     };
 
     physical_layout0: physical_layout_0 {
+        compatible = "zmk,physical-layout";
         display-name = "Default Layout";
         transform = <&default_transform>;
         keys =  // --- Top Row ---
