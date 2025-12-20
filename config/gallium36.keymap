@@ -1,6 +1,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/pointing.h>
 
 &soft_off { hold-time-ms = <5000>; };
 
@@ -16,10 +17,12 @@
         hm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            tapping-term-ms = <TAPPING_TERM>;
-            quick-tap-ms = <QUICK_TAP_MS>;
-            flavor = "balanced";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <130>;
+            flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
+
+            label = "HOMEROW_MODS";
         };
 
         lhm: homerow_left {
@@ -105,6 +108,24 @@
 &none  &trans  &trans  &trans  &studio_unlock  &td0
             >;
         };
+
+        Game_Layer {
+            bindings = <
+&kp ESC    &kp N1     &kp N2    &kp N3  &kp N4     &trans  &trans  &trans  &trans  &trans
+&kp TAB    &kp Q      &kp W     &kp E   &kp R      &trans  &trans  &trans  &trans  &trans
+&kp Z      &kp A      &kp S     &kp D   &kp F      &trans  &trans  &trans  &trans  &trans
+&kp LSHFT  &kp LCTRL  &kp LALT  &trans  &kp ENTER  &trans
+            >;
+        };
+
+        Mouse_Layer {
+            bindings = <
+&trans  &trans  &trans  &trans     &trans     &trans     &msc SCRL_UP    &mmv MOVE_UP    &msc SCRL_DOWN   &trans
+&trans  &trans  &trans  &trans     &trans     &trans     &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans
+&trans  &trans  &trans  &trans     &trans     &trans     &msc SCRL_LEFT  &trans          &msc SCRL_RIGHT  &trans
+&trans  &trans  &trans  &mkp MCLK  &mkp LCLK  &mkp RCLK
+            >;
+        };
     };
 
     combos {
@@ -114,6 +135,16 @@
             timeout-ms = <40>;
             key-positions = <14 24>;
             bindings = <&kp GRAVE>;
+        };
+
+        GameMode {
+            bindings = <&to 3>;
+            key-positions = <21 23>;
+        };
+
+        NormalMod {
+            bindings = <&to 0>;
+            key-positions = <20 22>;
         };
     };
 };
