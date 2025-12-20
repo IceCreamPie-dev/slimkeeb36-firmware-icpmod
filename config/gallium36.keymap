@@ -149,7 +149,7 @@
 
         MouseLayer {
             bindings = <&to 4>;
-            key-positions = <14 13>;
+            key-positions = <20 21>;
         };
     };
 };
