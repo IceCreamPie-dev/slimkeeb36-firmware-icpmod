@@ -11,11 +11,13 @@
         zmk,physical-layout = &physical_layout0;
     };
 
+    /* 표준 7인자 속성 정의 */
     key_physical_attrs: key_physical_attrs {
         compatible = "zmk,key-physical-attrs";
-        #key-cells = <7>; /* x, y, w, h, rx, ry, rz */
+        #key-cells = <7>;
     };
 
+    /* 하드웨어 매트릭스 연결 (변경 없음) */
     default_transform: keymap_transform_0 {
         compatible = "zmk,matrix-transform";
         columns = <8>;
@@ -28,67 +30,68 @@
         >;
     };
 
-    /* [수정] layouts 컨테이너 추가
-     * ZMK Studio는 이 'physical-layout-list' 안에 있는 레이아웃을 찾아서 화면에 그립니다.
-     */
+    /* 레이아웃 목록 컨테이너 */
     layouts {
         compatible = "zmk,physical-layout-list";
 
+        /* 표준 Corne 36키 레이아웃 좌표 적용 */
         physical_layout0: physical_layout_0 {
             compatible = "zmk,physical-layout";
-            display-name = "Default Layout";
+            display-name = "Corne 36 Layout";
             transform = <&default_transform>;
-            keys =  // --- Top Row ---
-                    // Left Hand (0-4)
-                    <&key_physical_attrs 0 0 1900 1900 0 0 0>,
-                    <&key_physical_attrs 1900 0 1900 1900 0 0 0>,
-                    <&key_physical_attrs 3800 0 1900 1900 0 0 0>,
-                    <&key_physical_attrs 5700 0 1900 1900 0 0 0>,
-                    <&key_physical_attrs 7600 0 1900 1900 0 0 0>,
-                    // Right Hand (5-9)
-                    <&key_physical_attrs 12500 0 1900 1900 0 0 0>,
-                    <&key_physical_attrs 14400 0 1900 1900 0 0 0>,
-                    <&key_physical_attrs 16300 0 1900 1900 0 0 0>,
-                    <&key_physical_attrs 18200 0 1900 1900 0 0 0>,
-                    <&key_physical_attrs 20100 0 1900 1900 0 0 0>,
+            
+            keys = 
+                /* Left Hand - Top Row */
+                <&key_physical_attrs 0 0 1900 1900 0 0 0>,
+                <&key_physical_attrs 1900 0 1900 1900 0 0 0>,
+                <&key_physical_attrs 3800 0 1900 1900 0 0 0>,
+                <&key_physical_attrs 5700 0 1900 1900 0 0 0>,
+                <&key_physical_attrs 7600 0 1900 1900 0 0 0>,
 
-                    // --- Middle Row ---
-                    // Left Hand (10-14)
-                    <&key_physical_attrs 0 1900 1900 1900 0 0 0>,
-                    <&key_physical_attrs 1900 1900 1900 1900 0 0 0>,
-                    <&key_physical_attrs 3800 1900 1900 1900 0 0 0>,
-                    <&key_physical_attrs 5700 1900 1900 1900 0 0 0>,
-                    <&key_physical_attrs 7600 1900 1900 1900 0 0 0>,
-                    // Right Hand (15-19)
-                    <&key_physical_attrs 12500 1900 1900 1900 0 0 0>,
-                    <&key_physical_attrs 14400 1900 1900 1900 0 0 0>,
-                    <&key_physical_attrs 16300 1900 1900 1900 0 0 0>,
-                    <&key_physical_attrs 18200 1900 1900 1900 0 0 0>,
-                    <&key_physical_attrs 20100 1900 1900 1900 0 0 0>,
+                /* Right Hand - Top Row */
+                <&key_physical_attrs 13300 0 1900 1900 0 0 0>,
+                <&key_physical_attrs 15200 0 1900 1900 0 0 0>,
+                <&key_physical_attrs 17100 0 1900 1900 0 0 0>,
+                <&key_physical_attrs 19000 0 1900 1900 0 0 0>,
+                <&key_physical_attrs 20900 0 1900 1900 0 0 0>,
 
-                    // --- Bottom Row ---
-                    // Left Hand (20-24)
-                    <&key_physical_attrs 0 3800 1900 1900 0 0 0>,
-                    <&key_physical_attrs 1900 3800 1900 1900 0 0 0>,
-                    <&key_physical_attrs 3800 3800 1900 1900 0 0 0>,
-                    <&key_physical_attrs 5700 3800 1900 1900 0 0 0>,
-                    <&key_physical_attrs 7600 3800 1900 1900 0 0 0>,
-                    // Right Hand (25-29)
-                    <&key_physical_attrs 12500 3800 1900 1900 0 0 0>,
-                    <&key_physical_attrs 14400 3800 1900 1900 0 0 0>,
-                    <&key_physical_attrs 16300 3800 1900 1900 0 0 0>,
-                    <&key_physical_attrs 18200 3800 1900 1900 0 0 0>,
-                    <&key_physical_attrs 20100 3800 1900 1900 0 0 0>,
+                /* Left Hand - Middle Row */
+                <&key_physical_attrs 0 1900 1900 1900 0 0 0>,
+                <&key_physical_attrs 1900 1900 1900 1900 0 0 0>,
+                <&key_physical_attrs 3800 1900 1900 1900 0 0 0>,
+                <&key_physical_attrs 5700 1900 1900 1900 0 0 0>,
+                <&key_physical_attrs 7600 1900 1900 1900 0 0 0>,
 
-                    // --- Thumb Cluster ---
-                    // Left Thumbs (30-32)
-                    <&key_physical_attrs 3800 5700 1900 1900 0 0 0>,
-                    <&key_physical_attrs 5700 5700 1900 1900 0 0 0>,
-                    <&key_physical_attrs 7600 5700 1900 1900 0 0 0>,
-                    // Right Thumbs (33-35)
-                    <&key_physical_attrs 12500 5700 1900 1900 0 0 0>,
-                    <&key_physical_attrs 14400 5700 1900 1900 0 0 0>,
-                    <&key_physical_attrs 16300 5700 1900 1900 0 0 0>;
+                /* Right Hand - Middle Row */
+                <&key_physical_attrs 13300 1900 1900 1900 0 0 0>,
+                <&key_physical_attrs 15200 1900 1900 1900 0 0 0>,
+                <&key_physical_attrs 17100 1900 1900 1900 0 0 0>,
+                <&key_physical_attrs 19000 1900 1900 1900 0 0 0>,
+                <&key_physical_attrs 20900 1900 1900 1900 0 0 0>,
+
+                /* Left Hand - Bottom Row */
+                <&key_physical_attrs 0 3800 1900 1900 0 0 0>,
+                <&key_physical_attrs 1900 3800 1900 1900 0 0 0>,
+                <&key_physical_attrs 3800 3800 1900 1900 0 0 0>,
+                <&key_physical_attrs 5700 3800 1900 1900 0 0 0>,
+                <&key_physical_attrs 7600 3800 1900 1900 0 0 0>,
+
+                /* Right Hand - Bottom Row */
+                <&key_physical_attrs 13300 3800 1900 1900 0 0 0>,
+                <&key_physical_attrs 15200 3800 1900 1900 0 0 0>,
+                <&key_physical_attrs 17100 3800 1900 1900 0 0 0>,
+                <&key_physical_attrs 19000 3800 1900 1900 0 0 0>,
+                <&key_physical_attrs 20900 3800 1900 1900 0 0 0>,
+
+                /* Left Hand - Thumb Cluster */
+                <&key_physical_attrs 3800 5700 1900 1900 0 0 0>,
+                <&key_physical_attrs 5700 5700 1900 1900 0 0 0>,
+                <&key_physical_attrs 7600 5700 1900 1900 0 0 0>,
+
+                /* Right Hand - Thumb Cluster */
+                <&key_physical_attrs 13300 5700 1900 1900 0 0 0>,
+                <&key_physical_attrs 15200 5700 1900 1900 0 0 0>,
+                <&key_physical_attrs 17100 5700 1900 1900 0 0 0>;
         };
     };
 };
