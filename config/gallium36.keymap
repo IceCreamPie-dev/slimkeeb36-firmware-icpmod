@@ -1,9 +1,10 @@
 #include <behaviors.dtsi>
-#include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
 
 /* Miryoku 레이아웃 정의 */
+
 #define BASE    0
 #define NAV     1
 #define MOUSE   2
@@ -12,14 +13,13 @@
 #define SYM     5
 #define FUN     6
 
-&caps_word {
-    continue-list = <UNDERSCORE MINUS>;
-};
+&caps_word { continue-list = <UNDERSCORE MINUS>; };
 
 / {
     behaviors {
         /* 홈 로우 모디파이어 (HRM) 설정 */
         /* 짧게 치면 글자, 길게 누르면 Shift/Ctrl/Alt/Gui */
+
         hm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -31,6 +31,7 @@
         };
 
         /* 레이어 탭 설정 (엄지 키용) */
+
         lt_thumb: layer_tap_thumb {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -47,79 +48,86 @@
         /* * BASE Layer (QWERTY)
          * Home Row Mods: GUI(A/;)  Alt(S/L)  Ctrl(D/K)  Shift(F/J)
          */
+
         default_layer {
             display-name = "Base";
             bindings = <
-&kp Q        &kp W        &kp E        &kp R         &kp T             &kp Y         &kp U         &kp I        &kp O        &kp P
-&hm LGUI A   &hm LALT S   &hm LCTRL D  &hm LSHFT F   &kp G             &kp H         &hm RSHFT J   &hm RCTRL K  &hm RALT L   &hm RGUI SEMI
-&kp Z        &kp X        &kp C        &kp V         &kp B             &kp N         &kp M         &kp COMMA    &kp DOT      &kp SLASH
-                          &lt_thumb MEDIA ESC &lt_thumb NAV SPACE &lt_thumb MOUSE TAB    &lt_thumb SYM ENTER &lt_thumb NUM BSPC &lt_thumb FUN DEL
+&kp Q                &kp W                &kp E                &kp R                &kp T               &kp Y              &kp U        &kp I        &kp O       &kp P
+&hm LGUI A           &hm LALT S           &hm LCTRL D          &hm LSHFT F          &kp G               &kp H              &hm RSHFT J  &hm RCTRL K  &hm RALT L  &hm RGUI SEMI
+&kp Z                &kp X                &kp C                &kp V                &kp B               &kp N              &kp M        &kp COMMA    &kp DOT     &kp SLASH
+&lt_thumb MEDIA ESC  &lt_thumb NAV SPACE  &lt_thumb MOUSE TAB  &lt_thumb SYM ENTER  &lt_thumb NUM BSPC  &lt_thumb FUN DEL
             >;
         };
 
         /* NAV Layer: 방향키, Home/End, PgUp/Dn (왼쪽 엄지 SPACE 유지 시 진입) */
+
         nav_layer {
             display-name = "Nav";
             bindings = <
-&none        &none        &none        &none         &none             &kp K_APP     &kp K_PASTE   &kp K_COPY   &kp K_CUT    &kp K_UNDO
-&kp LGUI     &kp LALT     &kp LCTRL    &kp LSHFT     &none             &kp LEFT      &kp DOWN      &kp UP       &kp RIGHT    &kp CAPS
-&none        &none        &none        &none         &none             &kp HOME      &kp PG_DN     &kp PG_UP    &kp END      &kp INS
-                          &trans       &trans        &trans            &trans        &trans        &trans
+&none     &none     &none      &none      &none   &kp K_APP  &kp K_PASTE  &kp K_COPY  &kp K_CUT  &kp K_UNDO
+&kp LGUI  &kp LALT  &kp LCTRL  &kp LSHFT  &none   &kp LEFT   &kp DOWN     &kp UP      &kp RIGHT  &kp CAPS
+&none     &none     &none      &none      &none   &kp HOME   &kp PG_DN    &kp PG_UP   &kp END    &kp INS
+&trans    &trans    &trans     &trans     &trans  &trans
             >;
         };
 
         /* MOUSE Layer: (마우스 기능이 활성화되어 있어야 작동) */
+
         mouse_layer {
             display-name = "Mouse";
             bindings = <
-&none        &none        &none        &none         &none             &none         &none         &none        &none        &none
-&kp LGUI     &kp LALT     &kp LCTRL    &kp LSHFT     &none             &none         &none         &none        &none        &none
-&none        &none        &none        &none         &none             &none         &none         &none        &none        &none
-                          &trans       &trans        &trans            &trans        &trans        &trans
+&none     &none     &none      &none      &none   &none   &none  &none  &none  &none
+&kp LGUI  &kp LALT  &kp LCTRL  &kp LSHFT  &none   &none   &none  &none  &none  &none
+&none     &none     &none      &none      &none   &none   &none  &none  &none  &none
+&trans    &trans    &trans     &trans     &trans  &trans
             >;
         };
 
         /* MEDIA Layer: 볼륨, 재생 제어 (왼쪽 엄지 ESC 유지 시 진입) */
+
         media_layer {
             display-name = "Media";
             bindings = <
-&none        &none        &none        &none         &none             &none         &none         &none        &none        &none
-&kp LGUI     &kp LALT     &kp LCTRL    &kp LSHFT     &none             &none         &kp C_VOL_DN  &kp C_VOL_UP &kp C_MUTE   &none
-&none        &none        &none        &none         &none             &none         &kp C_PREV    &kp C_NEXT   &kp C_PP     &none
-                          &trans       &trans        &trans            &trans        &trans        &trans
+&none     &none     &none      &none      &none   &none   &none         &none         &none       &none
+&kp LGUI  &kp LALT  &kp LCTRL  &kp LSHFT  &none   &none   &kp C_VOL_DN  &kp C_VOL_UP  &kp C_MUTE  &none
+&none     &none     &none      &none      &none   &none   &kp C_PREV    &kp C_NEXT    &kp C_PP    &none
+&trans    &trans    &trans     &trans     &trans  &trans
             >;
         };
 
         /* NUM Layer: 숫자 패드 (오른쪽 엄지 BSPC 유지 시 진입) */
+
         num_layer {
             display-name = "Num";
             bindings = <
-&kp LBKT     &kp N7       &kp N8       &kp N9        &kp RBKT          &none         &none         &none        &none        &none
-&kp SEMI     &kp N4       &kp N5       &kp N6        &kp EQUAL         &none         &kp LSHFT     &kp LCTRL    &kp LALT     &kp LGUI
-&kp GRAVE    &kp N1       &kp N2       &kp N3        &kp BSLH          &none         &none         &none        &none        &none
-                          &kp DOT      &kp N0        &kp MINUS         &trans        &trans        &trans
+&kp LBKT   &kp N7  &kp N8     &kp N9  &kp RBKT   &none   &none      &none      &none     &none
+&kp SEMI   &kp N4  &kp N5     &kp N6  &kp EQUAL  &none   &kp LSHFT  &kp LCTRL  &kp LALT  &kp LGUI
+&kp GRAVE  &kp N1  &kp N2     &kp N3  &kp BSLH   &none   &none      &none      &none     &none
+&kp DOT    &kp N0  &kp MINUS  &trans  &trans     &trans
             >;
         };
 
         /* SYM Layer: 특수 기호 (오른쪽 엄지 ENTER 유지 시 진입) */
+
         sym_layer {
             display-name = "Sym";
             bindings = <
-&kp LBRC     &kp AMPS     &kp STAR     &kp LPAR      &kp RBRC          &none         &none         &none        &none        &none
-&kp COLON    &kp DLLR     &kp PRCNT    &kp CARET     &kp PLUS          &none         &kp LSHFT     &kp LCTRL    &kp LALT     &kp LGUI
-&kp TILDE    &kp EXCL     &kp AT       &kp HASH      &kp PIPE          &none         &none         &none        &none        &none
-                          &kp LPAR     &kp RPAR      &kp UNDER         &trans        &trans        &trans
+&kp LBRC   &kp AMPS  &kp STAR   &kp LPAR   &kp RBRC  &none   &none      &none      &none     &none
+&kp COLON  &kp DLLR  &kp PRCNT  &kp CARET  &kp PLUS  &none   &kp LSHFT  &kp LCTRL  &kp LALT  &kp LGUI
+&kp TILDE  &kp EXCL  &kp AT     &kp HASH   &kp PIPE  &none   &none      &none      &none     &none
+&kp LPAR   &kp RPAR  &kp UNDER  &trans     &trans    &trans
             >;
         };
 
         /* FUN Layer: 펑션 키 (F1~F12), 블루투스 제어 (오른쪽 엄지 DEL 유지 시 진입) */
+
         fun_layer {
             display-name = "Fun";
             bindings = <
-&kp F12      &kp F7       &kp F8       &kp F9        &kp PSCRN         &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_CLR
-&kp F11      &kp F4       &kp F5       &kp F6        &kp SLCK          &out OUT_BLE  &kp LSHFT     &kp LCTRL    &kp LALT     &kp LGUI
-&kp F10      &kp F1       &kp F2       &kp F3        &kp PAUSE_BREAK   &out OUT_USB  &none         &none        &none        &bootloader
-                          &trans       &trans        &trans            &trans        &trans        &trans
+&kp F12  &kp F7  &kp F8  &kp F9  &kp PSCRN        &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2    &bt BT_SEL 3  &bt BT_CLR
+&kp F11  &kp F4  &kp F5  &kp F6  &kp SLCK         &out OUT_BLE  &kp LSHFT     &kp LCTRL       &kp LALT      &kp LGUI
+&kp F10  &kp F1  &kp F2  &kp F3  &kp PAUSE_BREAK  &out OUT_USB  &none         &studio_unlock  &none         &bootloader
+&trans   &trans  &trans  &trans  &trans           &trans
             >;
         };
     };
