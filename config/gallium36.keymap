@@ -4,6 +4,8 @@
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/pointing.h>
 
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 80
+
 /* Miryoku 레이아웃 정의 */
 
 #define BASE    0
