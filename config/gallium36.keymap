@@ -92,13 +92,13 @@
 
         /* MOUSE Layer: (마우스 기능이 활성화되어 있어야 작동) */
 
-mouse_layer {
+        mouse_layer {
             display-name = "Mouse";
             bindings = <
-&none        &none        &none        &none         &none             &kp K_REDO    &kp K_PASTE   &kp K_COPY   &kp K_CUT    &kp K_UNDO
-&kp LGUI     &kp LALT     &kp LCTRL    &kp LSHFT     &none             &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_UP &mmv MOVE_RIGHT &none
-&none        &none        &none        &none         &none             &msc SCRL_LEFT &msc SCRL_DOWN &msc SCRL_UP &msc SCRL_RIGHT &none
-                          &trans       &trans        &trans            &mkp RCLK     &mkp LCLK     &mkp MCLK
+&none     &none     &none      &none      &none      &kp K_REDO      &kp K_PASTE     &kp K_COPY    &kp K_CUT        &kp K_UNDO
+&kp LGUI  &kp LALT  &kp LCTRL  &kp LSHFT  &none      &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT  &none
+&none     &none     &none      &none      &none      &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP  &msc SCRL_RIGHT  &none
+&trans    &trans    &trans     &mkp RCLK  &mkp LCLK  &mkp MCLK
             >;
         };
 
@@ -107,10 +107,10 @@ mouse_layer {
         media_layer {
             display-name = "Media";
             bindings = <
-&none     &none     &none      &none      &none   &none   &none         &none         &none       &none
-&kp LGUI  &kp LALT  &kp LCTRL  &kp LSHFT  &none   &none   &kp C_VOL_DN  &kp C_VOL_UP  &kp C_MUTE  &none
-&none     &none     &none      &none      &none   &none   &kp C_PREV    &kp C_NEXT    &kp C_PP    &none
-&trans    &trans    &trans     &trans     &trans  &trans
+&kp F12  &kp F7  &kp F8  &kp F9  &kt PRINTSCREEN  &none   &none         &none         &none       &none
+&kp F11  &kp F4  &kp F5  &kp F6  &kt SCROLLLOCK   &none   &kp C_VOL_DN  &kp C_VOL_UP  &kp C_MUTE  &none
+&kp F10  &kp F1  &kp F2  &kp F3  &kt PAUSE_BREAK  &none   &kp C_PREV    &kp C_NEXT    &kp C_PP    &none
+&trans   &trans  &trans  &trans  &trans           &trans
             >;
         };
 
