@@ -17,7 +17,9 @@
 #define FUN     6
 
 &caps_word { continue-list = <UNDERSCORE MINUS>; };
-
+&soft_off {
+    hold-time-ms = <5000>;
+};
 / {
     behaviors {
         /* 홈 로우 모디파이어 (HRM) 설정 */
