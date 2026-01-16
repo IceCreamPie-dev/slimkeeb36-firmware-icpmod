@@ -41,9 +41,7 @@
         compatible = "zmk,kscan-gpio-direct";
         wakeup-source;
         input-gpios =
-            <&gpio0  4 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
-            <&gpio1 11 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
-            <&gpio0  9 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+            <&gpio0 4 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;  // T3만!
     };
     kscan3: direct_nowakeup {
         compatible = "zmk,kscan-gpio-direct";
