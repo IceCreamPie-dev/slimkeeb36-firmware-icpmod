@@ -9,7 +9,7 @@
         compatible = "zmk,kscan-composite";
         rows = <5>;
         columns = <4>;
-        wakeup-source;  // composite 전체에 추가 (deep/soft off 안정성 ↑)
+        wakeup-source;  // composite에 붙여 전체 wakeup 가능하게 (OK)
         matrix {
             kscan = <&kscan1>;
         };
@@ -41,9 +41,9 @@
 
     kscan2: direct_wakeup {
         compatible = "zmk,kscan-gpio-direct";
-        wakeup-source;  // 필수!
+        wakeup-source;  // 여기 붙여야 wakeup 동작!
         input-gpios =
-            <&gpio1 14 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;  // left T3 하나만!
+            <&gpio1 14 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;  // left T3만
     };
 
     kscan3: direct_nowakeup {
@@ -54,29 +54,13 @@
             <&gpio0 28 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
     };
 
-wakeup_trigger: wakeup_trigger {
-        compatible = "zmk,gpio-key-wakeup-trigger";
-        trigger = <&thumb_gpio_key>;
-        wakeup-source;
-
-        extra-gpios = <&gpio0 9 GPIO_ACTIVE_HIGH>;  // left T3 column (대칭상 gpio0 9로 가정, 필요 시 변경)
-    };
-
-    keys {
-        compatible = "gpio-keys";
-        thumb_gpio_key: thumb_gpio_key {
-            gpios = <&gpio1 14 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-        };
-    };
-
-    // 수정 핵심: property 이름을 wakeup-sources로!
+    // soft-off 노드: wakeup-source; 제거 + wakeup-sources 필수
     soft_off_wakers: soft-off-wakeup-sources {
         compatible = "zmk,soft-off-wakeup-sources";
-        wakeup-source;
-        wakeup-sources = <&wakeup_trigger>;  // ← wakers → wakeup-sources로 변경!
+        wakeup-sources = <&kscan2>;  // T3 wakeup용 kscan2만 enable
     };
 };
 
 &default_transform {
-    col-offset = <4>;  // 필요 시 유지 (left/right 공통 transform)
+    col-offset = <4>;
 };
