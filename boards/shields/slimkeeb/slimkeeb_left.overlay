@@ -54,11 +54,26 @@
             <&gpio0 28 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
     };
 
-    // soft off wakeup sources: kscan2만 등록 → T3만 깨움
+wakeup_trigger: wakeup_trigger {
+        compatible = "zmk,gpio-key-wakeup-trigger";
+        trigger = <&thumb_gpio_key>;
+        wakeup-source;
+
+        extra-gpios = <&gpio0 9 GPIO_ACTIVE_HIGH>;  // left T3 column (대칭상 gpio0 9로 가정, 필요 시 변경)
+    };
+
+    keys {
+        compatible = "gpio-keys";
+        thumb_gpio_key: thumb_gpio_key {
+            gpios = <&gpio1 14 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+        };
+    };
+
+    // 수정 핵심: property 이름을 wakeup-sources로!
     soft_off_wakers: soft-off-wakeup-sources {
         compatible = "zmk,soft-off-wakeup-sources";
         wakeup-source;
-        wakers = <&kscan2>;  // &kscan2 직접 참조 (T3 input 하나뿐이니 완벽)
+        wakeup-sources = <&wakeup_trigger>;  // ← wakers → wakeup-sources로 변경!
     };
 };
 
