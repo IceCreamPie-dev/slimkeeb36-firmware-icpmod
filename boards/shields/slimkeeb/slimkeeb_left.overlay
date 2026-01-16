@@ -9,6 +9,7 @@
         compatible = "zmk,kscan-composite";
         rows = <5>;
         columns = <4>;
+        wakeup-source;  // composite 전체에 추가 (deep/soft off 안정성 ↑)
         matrix {
             kscan = <&kscan1>;
         };
@@ -37,12 +38,14 @@
             , <&gpio0  5 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
             ;
     };
-kscan2: direct_wakeup {
+
+    kscan2: direct_wakeup {
         compatible = "zmk,kscan-gpio-direct";
-        wakeup-source;
+        wakeup-source;  // 필수!
         input-gpios =
-            <&gpio1 14 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;  // left T3 핀 하나만!
+            <&gpio1 14 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;  // left T3 하나만!
     };
+
     kscan3: direct_nowakeup {
         compatible = "zmk,kscan-gpio-direct";
         input-gpios =
@@ -50,30 +53,15 @@ kscan2: direct_wakeup {
             <&gpio0  3 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
             <&gpio0 28 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
     };
-// T3 wakeup 전용 trigger (left 대칭: column이 right와 반대)
-    wakeup_trigger: wakeup_trigger {
-        compatible = "zmk,gpio-key-wakeup-trigger";
-        trigger = <&thumb_gpio_key>;
-        wakeup-source;
 
-        // T3 column: left col-gpios에서 대칭상 col1 (&gpio0 9) 가정 (PCB 확인 필요!)
-        // 만약 left T3가 col2 (&gpio0 9)라면 그대로, col1 (&gpio1 13)일 수 있음
-        extra-gpios = <&gpio0 9 GPIO_ACTIVE_HIGH>;  // ← PCB 뒤집기 대칭으로 조정!!
-    };
-
-    // T3 키 정의 (left kscan2 중 T3 해당 input 핀 - 예시로 &gpio1 14 가정)
-    keys {
-        compatible = "gpio-keys";
-        thumb_gpio_key: thumb_gpio_key {
-            gpios = <&gpio1 14 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;  // left T3 input 핀으로 변경!!
-            // kscan2 input-gpios 중 엄지 가장 안쪽 키 골라 넣기 (PCB 확인)
-        };
-    };
-
-    // soft off wakeup sources
+    // soft off wakeup sources: kscan2만 등록 → T3만 깨움
     soft_off_wakers: soft-off-wakeup-sources {
         compatible = "zmk,soft-off-wakeup-sources";
         wakeup-source;
-        wakers = <&wakeup_trigger>;
+        wakers = <&kscan2>;  // &kscan2 직접 참조 (T3 input 하나뿐이니 완벽)
     };
+};
+
+&default_transform {
+    col-offset = <4>;  // 필요 시 유지 (left/right 공통 transform)
 };
