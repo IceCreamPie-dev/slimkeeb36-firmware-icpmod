@@ -9,7 +9,7 @@
         compatible = "zmk,kscan-composite";
         rows = <5>;
         columns = <4>;
-        wakeup-source;  // composite 전체에 wakeup-source 추가 (권장)
+        wakeup-source;  // composite 전체 wakeup 지원 (권장, 문제 없음)
         matrix {
             kscan = <&kscan1>;
         };
@@ -41,9 +41,9 @@
 
     kscan2: direct_wakeup {
         compatible = "zmk,kscan-gpio-direct";
-        wakeup-source;  // 필수!
+        wakeup-source;  // 필수! soft off wakeup을 위해
         input-gpios =
-            <&gpio0 4 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;  // T3만!
+            <&gpio0 4 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;  // T3 하나만!
     };
 
     kscan3: direct_nowakeup {
@@ -54,11 +54,10 @@
             <&gpio1 13 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
     };
 
-    // soft off wakeup sources: kscan2만 등록 (T3 하나만 wakeup)
+    // soft off wakeup sources: wakeup-source; 제거 + wakeup-sources 필수
     soft_off_wakers: soft-off-wakeup-sources {
         compatible = "zmk,soft-off-wakeup-sources";
-        wakeup-source;
-        wakers = <&kscan2>;  // direct_wakeup 노드를 직접 참조 → T3만 깨움
+        wakeup-sources = <&kscan2>;  // T3 wakeup용 kscan2 등록 (필수!)
     };
 };
 
